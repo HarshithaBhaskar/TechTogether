@@ -1,27 +1,23 @@
-package View;
-//import java.awt.*;
-//
-//import javax.swing.*;
-//
-//public class HomeView {
-//  JPanel homeScreen;
-//  JTextField text;
-//
-//  public HomeView(){
-//    this.homeScreen = new JPanel();
-//    homeScreen.setBackground(new Color(255));
-//    homeScreen.setPreferredSize(new Dimension(340, 640));
-//    this.text = new JTextField();
-//    text.setText("Hello");
-//  }
-//}
+/**
+ * TO COMPLETE -
+ * - Make Home screen with text box for :itemize: and have button to enter app/swipe on it's own
+ * - Add buttons for look up (connect to server)
+ * - Re position it
+ * - Drop down menu for products and stores
+ */
 
+package View;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.JPanel;
+
+import Model.IItem;
+
 class HomeView{
+  IItem item;
+
   JButton welcome;
   JButton customer;
   JButton retailer;
@@ -36,11 +32,20 @@ class HomeView{
   JPanel customerScreen;
   JPanel retailerScreen;
   JPanel manufacturerScreen;
+//  JTextField lookUpProductsC;
+//  JTextField lookUpStoreC;
+//  JTextField lookUpProductsR;
+//  JTextField lookUpStoreM;
+
+  JComboBox<String> Items = new JComboBox<>(); // SELECT s.name FROM Items
+
+
   public static void main(String args[]){
     HomeView HW = new HomeView("Itemizer");
   }
 
   public HomeView(String in){
+
     homeframe = new JFrame("Itemizer");
     homeframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     homeframe.setSize(340,640);
@@ -48,7 +53,6 @@ class HomeView{
     welcome = new JButton(new AbstractAction("Welcome") {
       @Override
       public void actionPerformed(ActionEvent e) {
-        homeframe.setVisible(false);
         userTypeFrame.setVisible(true);
       }
     });
@@ -56,24 +60,21 @@ class HomeView{
     customer = new JButton(new AbstractAction("Customer") {
       @Override
       public void actionPerformed(ActionEvent e) {
-        userTypeFrame.setVisible(false);
         customerFrame.setVisible(true);
       }
     });
 
-    manufacturer = new JButton(new AbstractAction("Retailer") {
+    retailer = new JButton(new AbstractAction("Retailer") {
       @Override
       public void actionPerformed(ActionEvent e) {
-        userTypeFrame.setVisible(false);
-        manufacturerFrame.setVisible(true);
+        retailerFrame.setVisible(true);
       }
     });
 
-    retailer = new JButton(new AbstractAction("Manufacturer") {
+    manufacturer = new JButton(new AbstractAction("Manufacturer") {
       @Override
       public void actionPerformed(ActionEvent e) {
-        userTypeFrame.setVisible(false);
-        retailerFrame.setVisible(true);
+        manufacturerFrame.setVisible(true);
       }
     });
 
@@ -96,16 +97,18 @@ class HomeView{
 
     customerScreen = new JPanel();
     customerScreen.setPreferredSize(new Dimension(340, 640));
-    customerScreen.setBackground(new Color(255, 255, 255));
+    customerScreen.setBackground(new Color(255, 25, 255));
+    //customerScreen.add(items);
+//    customerScreen.add(lookUpStoreC);
 
     customerFrame = new JFrame("Hello Customer");
     customerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     customerFrame.setSize(340, 640);
-    customerFrame.add(customerScreen);
-
     retailerScreen = new JPanel();
+
     retailerScreen.setPreferredSize(new Dimension(340, 640));
-    retailerScreen.setBackground(new Color(255, 255, 255));
+    retailerScreen.setBackground(new Color(255, 255, 25));
+//    retailerScreen.add(lookUpProductsR);
 
     retailerFrame = new JFrame("Hello Retailer");
     retailerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -115,6 +118,7 @@ class HomeView{
     manufacturerScreen = new JPanel();
     manufacturerScreen.setPreferredSize(new Dimension(340, 640));
     manufacturerScreen.setBackground(new Color(255, 255, 255));
+//    manufacturerScreen.add(lookUpStoreM);
 
     manufacturerFrame = new JFrame("Hello Manufacturer");
     manufacturerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -125,3 +129,5 @@ class HomeView{
     homeframe.setVisible(true);
   }
 }
+
+// Testing GitHub

@@ -15,5 +15,4 @@ public class Store extends AStore{
     super(storeName);
   }
 
-
 }
