@@ -32,8 +32,15 @@ class HomeView{
   JPanel customerScreen;
   JPanel retailerScreen;
   JPanel manufacturerScreen;
-//  JTextField lookUpProductsC;
-//  JTextField lookUpStoreC;
+
+  JButton lookUpProduct;
+  JButton lookUpStore;
+
+
+
+
+  JTextField lookUpProductsC;
+  JTextField lookUpStoreC;
 //  JTextField lookUpProductsR;
 //  JTextField lookUpStoreM;
 
